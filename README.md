@@ -1,3 +1,8 @@
+# Running Local Server
+`bundle exec jekyll s`
+http://127.0.0.1:4000/
+
+
 # Chirpy Starter
 
 [![Gem Version](https://img.shields.io/gem/v/jekyll-theme-chirpy)][gem]&nbsp;

@@ -7,9 +7,10 @@ tags: [flow, automation add-on]     # TAG names should always be lowercase
 pin: true
 image:
   path: /assets/img/automation-add-on/teaser.png
-#   lqip: data:image/webp;base64,UklGRpoAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSDIAAAARL0AmbZurmr57yyIiqE8oiG0bejIYEQTgqiDA9vqnsUSI6H+oAERp2HZ65qP/VIAWAFZQOCBCAAAA8AEAnQEqEAAIAAVAfCWkAALp8sF8rgRgAP7o9FDvMCkMde9PK7euH5M1m6VWoDXf2FkP3BqV0ZYbO6NA/VFIAAAA
   alt: Example view of the Automation Add-On components.
 ---
+
+📢 [Jump to Installation Info](#installation-info)
 
 With the Summer '24 Release, Salesforce has introduced the [Automation Lightning App](https://help.salesforce.com/s/articleView?id=release-notes.rn_automate_flow_builder_automation_lightning_app.htm&release=250&type=5){:target="_blank"}
 
@@ -252,6 +253,25 @@ When saving the categorization to the record, the component will attempt to save
 
 ![Categorization Saved](/assets/img/automation-add-on/categorization-saved.png)
 
+> When using this component, we recommend marking the fields on the Page Layout (different from Lightning Record Page) as read-only.  The System Administrator will still have edit acces, but others should not.
+>
+> To access the Page Layout, you cannot do this from Setup -> Object Manager like normal Salesforce objects.  Instead, you must follow these steps:
+> 1. Navigate to the `Automation` app from the App Launcher
+> 1. Select the `Flows` tab
+> 1. Click the `Setup` gear in the upper right corner, ans select `Edit Object`
+> 1. You now have access to the `FlowRecord` in Object Manager
+> 1. Select `Page Layouts`
+> 1. Click on `Flow Layout`
+> 1. Find the Category field, then when your cursor is hovering over the field, select the wrench icon 🔧 to edit the properties
+> 1. Check the box for `Read-Only` and click OK
+> 1. Repeat this process for the Subcategory field
+> 1. Click the Save button
+{: .prompt-tip }
+> **Known Glitch**: If you remove the fields from the Page Layout, there is often a "refresh" issue that makes the component not reflect the changed values.  That's why we offer the recommendation above, rather than removing them from the Page Layout.
+>
+> We are also aware that there is behavior where Subcategory can be manually entered without a Category and this can create a confusing user interface loop when trying to clear the value if setting it to Picklist mode.
+{: .prompt-danger }
+
 ## Setup
 
 ### Build a Lightning Record Page
@@ -303,7 +323,7 @@ Using the Lighting App Builder is another option for managing pages.  See the [S
    ![Lightning Page Layout](/assets/img/automation-add-on/page-layout.png)
 
       1. Right column
-         - Flow Classification
+         - Flow Classification ***(See tip below)***
          - Flow Advanced Details
          - Flow Schedule Details
          - Flow Trigger Details
@@ -313,13 +333,25 @@ Using the Lighting App Builder is another option for managing pages.  See the [S
          - Flow Variables List
          - Flow Interviews List
 
+  > For the **Flow Categorization** LWC, we recommend first reviewing the component by using the included demonstration file with sample categories and subcategories.  You can use it by setting the following values:
+  > - **Category File Name**:  `demo_flow_categories`
+  > - **Category File Namespace**:  `autom8n`
+  > - **Category File Delimiter**:  `,` (it should default to this comma character)
+  > - **Category Value Splitter**:  `:` (it should default to this colon character)
+  > See the [screenshot above in the Components: Flow Categorization](#flow-categorization) section if you need help understanding the configuration.
+  >
+  > 📢 **Also** when using this component, we recommend making the fields on the Page Layout (different from Lightning Record Page) as read-only.
+  {: .prompt-tip }
+
 9. Save the page.
 
 10. Activate as needed. See the [Salesforce Help Docs: Activate Lightning Experience Record Pages](https://help.salesforce.com/s/articleView?id=sf.lightning_app_builder_customize_lex_pages_activate.htm&type=5){:target="_blank"} for more details.
 
 ### Configure Categorization Picklist Options
 
-See [Delimited File Structure](#delimited-file-structure)
+Once you understand how the Flow Categorization LWC works, you can upload your own file as a Static Resource and configure the component as described above by setting the appropriate properties.
+
+You can download our sample categorization file if you'd like to review.  See [Delimited File Structure](#delimited-file-structure) for find it and for details on how to build your own file.
 
 ## Delimited File Structure
 
@@ -356,3 +388,31 @@ You can access the packaged sample by navigating in Setup to the Static Resource
 ![Static Resource](/assets/img/automation-add-on/static-resource.png)
 
 ![Sample Categorization File](/assets/img/automation-add-on/demo-csv.png)
+
+## Installation Info
+
+Sandbox & Scratch Orgs
+: [https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001S5QDAA0](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001S5QDAA0)
+
+Production & Developer Edition Orgs
+: [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001S5QDAA0](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001S5QDAA0)
+
+## Uninstall Steps
+
+If you followed the steps we've outlined here, it should be simple:
+
+1. Navigate to Setup
+1. In the Quick Find, search for `Lightning App Builder` and select it
+1. Find the Lightning Record Page you built
+1. Click on `Edit` next to it
+1. Deactiveate the page
+   1. Click on `Activation`
+   1. Click the appropriate `Remove as...` (should be Org Default)
+   1. Follow the steps on the screen
+1. Click the Lightning App Builder's back arrow (top left)
+1. Find the Lightning Record Page (again)
+1. Click on `Del` to delete it
+1. Now uninstall the package
+   1. In the Quick Find, search for `Installed Packages`
+   1. Click `Uninstall` next to the Flow Automation Add-On package (autom8n)
+   1. Follow the steps

@@ -41,7 +41,7 @@ this.dispatchEvent(new FlowAttributeChangeEvent('scannedBarcode',this.scannedBar
 
 I tried to do this with the continuous scanning mode, but was unsuccessful.  Smarter minds can try to figure this out for the rest of us.
 
-## How I Demonstate How to Use It
+## Example of How to Use It
 
 ### Background
 

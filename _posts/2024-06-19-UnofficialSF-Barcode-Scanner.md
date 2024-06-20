@@ -28,9 +28,9 @@ If we geek out for a moment, the technical change was small but mighty.
 
 We just needed to add two lines of code.
 
-First, we imported the `FlowAttributeChangeEvent` from from lightning/flowSupport in JavaScript sot that we could inform the flow during runtime that a component property has changed.
+First, we imported the `FlowAttributeChangeEvent` from from `lightning/flowSupport` in JavaScript sot that we could inform the flow during runtime that a component property has changed.
 
-> Source:  [Lightning Web Component Developer Guide](from lightning/flowSupport in JavaScript)
+> Source:  [Lightning Web Component Developer Guide](https://developer.salesforce.com/docs/component-library/bundle/lightning-flow-support)
 {: .prompt-info }
 
 Then, after the scann was captured, we needed to dispatch this event.

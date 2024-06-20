@@ -33,7 +33,7 @@ First, we imported the `FlowAttributeChangeEvent` from from `lightning/flowSuppo
 > Source:  [Lightning Web Component Developer Guide](https://developer.salesforce.com/docs/component-library/bundle/lightning-flow-support)
 {: .prompt-info }
 
-Then, after the scann was captured, we needed to dispatch this event.
+Then, after the scan was captured, we needed to dispatch this event.
 
 ```javascript
 this.dispatchEvent(new FlowAttributeChangeEvent('scannedBarcode',this.scannedBarcode));
@@ -89,7 +89,7 @@ How this works is that:
 1. This will then
    * update a formula variable to define a SOQL query
    * cause the Data Fetcher component to meet its conditional visibility requirement (shown later)
-1. Data fetcher will use this SOQL query from the formula varialbe and ideally return the result of a single asset record being found, because it's matching on a unique identifer (no duplicates)
+1. Data fetcher will use this SOQL query from the formula variable and ideally return the result of a single asset record being found, because it's matching on a unique identifer (no duplicates)
 1. The returned result will then be populated into the lookup field and should result in relating the lookup to the asset, as if the user manually searched for the record using the lookup
 
 > This is by design, so that if the barcode is unable to be scanned, the user can still use the flow to perform its intended purpose by searching for the asset.
@@ -178,7 +178,7 @@ Design your buttons as you desire, I used:
 
 > **Special Note:**
 >
-> Since I chose to use the Flow Button Bar to navigate, I've actually set the screen's fotter to not be shown and instead use the `Done Scanning` button that was configured.
+> Since I chose to use the Flow Button Bar to navigate, I've actually set the screen's footer to not be shown and instead use the `Done Scanning` button that was configured.
 {: .prompt-warning }
 
 ---
@@ -258,6 +258,10 @@ The flow will perform the update using the record collection variable, `{!assets
 ## Summary
 
 So now you've seen how the update to make the barcode scanner reactive allows you to put it into a screen flow and with some other components, make it a wonderful user experience to scan an asset, view and update/save changes on a form, and then move onto the next asset.
+
+Now if others can help pin point how to get this to work on continuous scanning, that would help with ideas like adding it to a data table of items scanned.
+
+And imagine when the [Flow Action Button](https://admin.salesforce.com/blog/2024/screen-flows-and-action-buttons-summer-24-be-release-ready) comes out of beta and can be used to make those updates on the same screen, reducing this down to a single screen!
 
 🎞️ [Watch it in action again](#watch-a-demo)
 

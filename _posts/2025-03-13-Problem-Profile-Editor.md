@@ -10,6 +10,8 @@ pin: true
 #   alt: Example view of the Automation Add-On components.
 ---
 
+🆕 v0.2 released 2025-APR-12: [Support inaccessible profiles!]({% link _posts/2025-04-12-Problem-Profile-Editor-v0.2.md %})
+
 📢 [Jump to Installation Info](#installation-info)
 
 Have you ever tried remove profile access to a default record type, either because of an accidental assignment, org clean up, or to uninstall a package, only to get stopped in your tracks when pesky profiles like the Site Guest Users, Chatter Users or Platform License Users (and more!) have access?  Or even trying to clean up field access as part of security/compliance checks and these same profiles are a problem?
@@ -56,11 +58,15 @@ Want to explore the code? It's an 🔓📦 unlocked package and the repository i
 
 ## Installation Info
 
+v0.2 - 2025-APR-12
 Sandbox & Scratch Orgs
-: [https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqhZAAS](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqhZAAS)
+: [https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqqqAAC](https://test.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqqqAAC)
 
 Production & Developer Edition Orgs
-: [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqhZAAS](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqhZAAS)
+: [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqqqAAC](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqqqAAC)
+
+Old Versions (Production-only)
+[v0.1 - 2025-MAR-13](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t3x000001ZqqqAAC)
 
 ## Uninstall Steps
 

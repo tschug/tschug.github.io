@@ -1,6 +1,6 @@
 ---
 title: Conditional Formatting to Record Fields on Dynamic Forms
-description: The .
+description: Technical dive into the Winter '25 feature with some workarounds to its gaps.
 # date: 2025-03-15 14:00:00 -0500
 categories: [Salesforce]
 tags: []     # TAG names should always be lowercase

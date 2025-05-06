@@ -4,7 +4,7 @@ description: A small but mighty update to the UnofficialSF Barcode Scanner.
 # date: 2024-06-20 14:00:00 -0500
 categories: [Salesforce, Flow]
 tags: [flow, unofficialsf]     # TAG names should always be lowercase
-pin: true
+pin: false
 image:
   path: /assets/img/barcode-scanner/teaser.png
   alt: Example view of a barcode scanner flow.
